@@ -1,0 +1,35 @@
+models:
+  - name: contrat_dim
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: num_contrat
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: primary_key
+      - name: formule
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: categorie_formule
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: type_beneficiaire
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: categorie
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: famille_metier
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: libelle_profession
+        data_type: string
+        constraints:
+          - type: not_null

@@ -1,0 +1,58 @@
+models:
+  - name: prestations_sante
+    config:
+      contract:
+        enforced: true
+    constraints: 
+      # - type: primary_key
+      #   columns: [num_sinistre]
+      - type: foreign_key
+        columns: [num_beneficiaire_sinistre]
+        to: ref('beneficiaire')
+        to_columns: [num_beneficiaire]
+    columns:
+      - name: num_sinistre
+        description: Numéro sinistre
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: num_adhesion
+        description: Numéro de contrat lié au sinistre
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: num_beneficiaire_sinistre
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: num_beneficiaire
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: acte
+        description: Acte médical pratiqué
+        data_type: string
+      - name: designation_acte
+        description: Désignation de l'acte médical pratiqué
+        data_type: string
+      - name: categorie_acte
+        description: Catégorie de l'acte médical pratiqué
+        data_type: string
+      - name: libelle_bareme
+        description: Libellé bareme
+        data_type: string
+      - name: date_debut_soins
+        description: Date de début des soins
+        data_type: date
+      - name: date_paiement
+        description: Date de paiement du sinistre
+        data_type: date
+      - name: frais_reel_assure
+        description: Frais réel dépensé par l'assuré
+        data_type: float
+      - name: montant_secu
+        description: Montant remboursé par la sécu
+        data_type: float
+      - name: montant_rembourse
+        description: Montant remboursé par l'organisme
+        data_type: float

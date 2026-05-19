@@ -1,0 +1,1 @@
+{{ test_count( ref('Adhesion_detail'), ref('adhesion'), ref('adhesion_rejets')) }}

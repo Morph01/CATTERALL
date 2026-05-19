@@ -1,0 +1,1 @@
+{{ test_count( ref('Prestations_sante'), ref('prestations_sante'), ref('prestations_sante_rejets')) }}

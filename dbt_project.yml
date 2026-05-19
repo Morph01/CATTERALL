@@ -1,0 +1,26 @@
+name: assurance
+
+profile: assurance
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into 'public_bronze'
+  assurance:
+    +schema: bronze
+    +delimiter: ";"
+
+models:
+  assurance:
+    +static_analysis: strict
+    silver:
+      +schema: silver
+      +materialized: table
+    gold:
+      +schema: gold
+      +materialized: table

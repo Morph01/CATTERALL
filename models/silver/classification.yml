@@ -1,0 +1,31 @@
+models:
+  - name: classification
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: niveau
+        data_type: int
+        constraints:
+          - type: not_null
+
+      - name: code
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: categorie
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: famille_metier
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: intitule
+        data_type: string
+        constraints:
+          - type: not_null

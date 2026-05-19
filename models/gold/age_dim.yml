@@ -1,0 +1,17 @@
+models:
+  - name: age_dim
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: age_id
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "age_id >= 0"
+      - name: groupe_age
+        data_type: string
+        constraints:
+          - type: not_null

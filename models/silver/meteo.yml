@@ -1,0 +1,44 @@
+models:
+  - name: meteo
+    config:
+      contract:
+        enforced: true
+
+    constraints:
+      - type: primary_key
+        columns:
+          - date
+          - departement
+
+    columns:
+      - name: date
+        data_type: date
+        constraints:
+          - type: not_null
+
+      - name: departement
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: temperature_min
+        data_type: float
+        constraints:
+          - type: not_null
+
+      - name: temperature_max
+        data_type: float
+        constraints:
+          - type: not_null
+
+      - name: vent_max
+        data_type: float
+
+      - name: precipitation
+        data_type: float
+        constraints:
+          - type: check
+            expression: "precipitation >= 0"
+      
+      - name: temperature_moyenne
+        data_type: float

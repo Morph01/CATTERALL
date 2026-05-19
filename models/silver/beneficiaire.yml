@@ -1,0 +1,25 @@
+models:
+  - name: beneficiaire
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: num_beneficiaire
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "num_beneficiaire > 0"
+      - name: sexe
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "sexe IN ('Homme', 'Femme')"
+      - name: regime_social
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "regime_social IN ('Agricole', 'Général', 'Spécial')"

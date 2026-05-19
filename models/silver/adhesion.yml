@@ -1,0 +1,106 @@
+models:
+  - name: adhesion
+    config:
+      contract:
+        enforced: true
+    constraints:
+      - type: primary_key
+        columns:
+          - num_adhesion_normalise
+          - num_beneficiaire_unique
+          - annee_paiement
+    columns:
+      - name: num_adhesion_normalise
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "num_adhesion_normalise > 0"
+      - name: num_beneficiaire_unique
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "num_beneficiaire_unique > 0"
+      - name: num_contrat
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: date_naissance_assure
+        data_type: date
+        constraints:
+          - type: not_null
+      - name : code_postal
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "code_postal >= 1000 AND code_postal <= 99999"
+      - name: departement
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: dep_int
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: annee_paiement
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "annee_paiement >= 2009 AND annee_paiement <= 2012"
+      - name: num_beneficiaire
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: type_beneficiaire
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "type_beneficiaire IN ('CO', 'EN', 'AS')"
+      - name: date_naissance_beneficiaire
+        data_type: date
+        constraints:
+          - type: not_null
+      - name: code_profession
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: code_produit
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: code_fractionnement
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: code_garantie
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: formule
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: categorie_formule
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: primes_acquises
+        data_type: float
+        constraints:
+          - type: not_null
+      - name: code_agent
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: code_region
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: prime_garantie
+        data_type: string
+        constraints:
+          - type: not_null

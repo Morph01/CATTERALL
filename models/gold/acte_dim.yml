@@ -1,0 +1,22 @@
+models:
+  - name: acte_dim
+    config:
+      contract:
+        enforced: true
+    constraints:
+      - type: primary_key
+        columns:
+          - acte
+    columns:
+      - name: acte
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: designation_acte
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: categorie_acte
+        data_type: string
+        constraints:
+          - type: not_null
