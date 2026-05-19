@@ -37,10 +37,10 @@
             packages =
               with pkgs;
               [
-                python314
+                python312
                 uv
               ]
-              ++ (with pkgs.python314Packages; [
+              ++ (with pkgs.python312Packages; [
                 pip
                 venvShellHook
               ]);
