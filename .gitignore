@@ -1,2 +1,10 @@
 .venv
 .direnv
+
+logs
+*.log
+logs/dbt.log
+
+dbt_packages
+seeds/*
+target
