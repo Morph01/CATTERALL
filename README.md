@@ -12,6 +12,14 @@ Pour synchroniser les dépendances (e.g. installer `dbt-postgres`) :
 uv sync
 ```
 
+Nous utilisons Postgres comme base de données. Pour démarrer le service en utilisant Docker Compose :
+
+```bash
+docker compose up -d
+```
+
+Le Docker Compose contient également un service `pgadmin` pour la gestion de la base de données accessible via `http://localhost:15433`.
+
 ## Useful commands
 
 ```sh
