@@ -25,6 +25,7 @@ services:
       # pgAdmin writes session data here. If startup fails with a permission
       # error, set the host folder owner to 5050:5050 before starting.
       - pgadmin:/var/lib/pgadmin/
+      - ./servers.json:/pgadmin4/servers.json
 
 networks:
   postgres-network:
