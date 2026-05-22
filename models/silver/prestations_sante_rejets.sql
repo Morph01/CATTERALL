@@ -49,6 +49,9 @@ rejets AS (
         SELECT 1 FROM {{ ref('Beneficiaire') }} b
         WHERE b."NUM_BENEFICIAIRE" = source.num_beneficiaire_sinistre
     )
+    OR frais_reel_assure IS NULL
+    OR montant_secu       IS NULL
+    OR montant_rembourse  IS NULL
     OR frais_reel_assure  < 0
     OR montant_secu       < 0
     OR montant_rembourse  < 0
