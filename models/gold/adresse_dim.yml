@@ -1,0 +1,21 @@
+models:
+  - name: adresse_dim
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: code_postal
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "code_postal >= 0"
+      - name: departement
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: region
+        data_type: string
+        constraints:
+          - type: not_null

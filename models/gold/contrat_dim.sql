@@ -1,1 +1,1 @@
-SELECT a.num_contrat, a.formule, a.categorie_formule, a.type_beneficiaire, c.categorie, c.famille_metier, c.intitule as libelle_profession FROM {{ ref('adhesion') }} a, {{ ref('classification') }} c WHERE a.code_profession = c.code
+SELECT a.num_contrat, a.formule, a.categorie_formule, a.type_beneficiaire, c.categorie AS categorie_metier, c.famille_metier, c.intitule AS libelle_metier FROM {{ ref('adhesion') }} a, {{ ref('classification') }} c WHERE a.code_profession = c.code

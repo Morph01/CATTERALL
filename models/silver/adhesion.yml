@@ -8,7 +8,7 @@ models:
         columns:
           - num_adhesion_normalise
           - num_beneficiaire_unique
-          - annee_paiement
+          - annee_contrat
     columns:
       - name: num_adhesion_normalise
         data_type: int
@@ -44,12 +44,12 @@ models:
         data_type: int
         constraints:
           - type: not_null
-      - name: annee_paiement
+      - name: annee_contrat
         data_type: int
         constraints:
           - type: not_null
           - type: check
-            expression: "annee_paiement >= 2009 AND annee_paiement <= 2012"
+            expression: "annee_contrat >= 2009 AND annee_contrat <= 2012"
       - name: num_beneficiaire
         data_type: int
         constraints:

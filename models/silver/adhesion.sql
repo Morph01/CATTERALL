@@ -3,7 +3,7 @@ with source as (
           "NUM_BENEFICIAIRE_UNIQUE" as num_beneficiaire_unique,
           "DATE_NAISSANCE_ASSURE" as date_naissance_assure,
           "CODE_POSTAL" as code_postal,
-          "EXERCICE_PAIEMENT" as annee_paiement,
+          "EXERCICE_PAIEMENT" as annee_contrat,
           "NUM_BENEFICIAIRE" as num_beneficiaire,
           "TYPE_BENEFICIAIRE" as type_beneficiaire,
           "DATE_NAISSANCE_BENEFICIAIRE" as date_naissance_beneficiaire,
@@ -26,7 +26,7 @@ with source as (
 normalized as (
    select num_adhesion_normalise,
           num_beneficiaire_unique,
-          num_adhesion_normalise::text || num_beneficiaire_unique::text || annee_paiement::text as num_contrat,
+          num_adhesion_normalise::text || num_beneficiaire_unique::text || annee_contrat::text as num_contrat,
           TO_DATE(date_naissance_assure, 'DD/MM/YYYY') as date_naissance_assure,
           code_postal,
           LPAD(case
@@ -40,7 +40,7 @@ normalized as (
                when code_postal / 1000 > 96 then code_postal / 1000
                else code_postal / 1000
           end as dep_int,
-          annee_paiement,
+          annee_contrat,
           num_beneficiaire,
           type_beneficiaire,
           TO_DATE(date_naissance_beneficiaire, 'DD/MM/YYYY') as date_naissance_beneficiaire,

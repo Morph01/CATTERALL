@@ -1,0 +1,21 @@
+models:
+  - name: beneficiaire_dim
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: num_beneficiaire
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: primary_key
+          - type: check
+            expression: "num_beneficiaire >= 0"
+      - name: sexe
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: regime_social
+        data_type: string
+        constraints:
+          - type: not_null

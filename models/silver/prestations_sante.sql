@@ -49,6 +49,9 @@ normalized as (
     AND frais_reel_assure  >= 0
     AND montant_secu       >= 0
     AND montant_rembourse  >= 0
+    AND frais_reel_assure  IS NOT NULL
+    AND montant_secu       IS NOT NULL
+    AND montant_rembourse  IS NOT NULL
 )
 
 select * from normalized

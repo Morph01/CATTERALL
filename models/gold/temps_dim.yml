@@ -1,0 +1,46 @@
+models:
+  - name: temps_dim
+    config:
+      contract:
+        enforced: true
+    constraints:
+      - type: primary_key
+        columns:
+          - date_id
+    columns:
+      - name: date_id
+        data_type: date
+        constraints:
+          - type: not_null
+      - name: annee
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "annee BETWEEN 2009 AND 2012"
+      - name: trimestre
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "trimestre BETWEEN 1 AND 4"
+      - name: mois
+        data_type: string
+        constraints:
+          - type: not_null
+      - name: saison
+        data_type: string
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "saison IN ('Hiver', 'Printemps', 'Été', 'Automne')"
+      - name: num_jour_mois
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "num_jour_mois BETWEEN 1 AND 31"
+      - name: jour
+        data_type: string
+        constraints:
+          - type: not_null

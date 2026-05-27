@@ -32,9 +32,9 @@ rejets AS (
                 SELECT DISTINCT "NUM_BENEFICIAIRE" FROM {{ ref('Beneficiaire') }}
             ) THEN 'beneficiaire_inconnu' END,
 
-            CASE WHEN frais_reel_assure   < 0 THEN 'frais_reel_negatif'    END,
-            CASE WHEN montant_secu        < 0 THEN 'montant_secu_negatif'  END,
-            CASE WHEN montant_rembourse   < 0 THEN 'montant_rembourse_negatif' END
+            CASE WHEN frais_reel_assure   < 0 OR frais_reel_assure IS NULL THEN 'frais_reel_negatif'    END,
+            CASE WHEN montant_secu        < 0 OR montant_secu IS NULL THEN 'montant_secu_negatif'  END,
+            CASE WHEN montant_rembourse   < 0 OR montant_rembourse IS NULL THEN 'montant_rembourse_negatif' END
         )) AS motif_rejet,
 
         current_timestamp AS detected_at

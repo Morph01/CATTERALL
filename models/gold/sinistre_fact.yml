@@ -1,0 +1,56 @@
+models:
+  - name: sinistre_fact
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: beneficiaire_id
+        data_type: int
+        constraints:
+          - type: not_null
+          - type: check
+            expression: "beneficiaire_id >= 0"
+      - name: age_id
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: date_soins_id
+        data_type: date
+        constraints:
+          - type: not_null
+      - name: date_remboursement_id
+        data_type: date
+        constraints:
+          - type: not_null
+      - name: acte_id
+        data_type: text
+        constraints:
+          - type: not_null
+      - name: contrat_id
+        data_type: text
+        constraints:
+          - type: not_null
+      - name: adresse_id
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: temperature_moyenne
+        data_type: double precision
+        constraints:
+          - type: not_null
+      - name: anciennete
+        data_type: int
+        constraints:
+          - type: not_null
+      - name: frais_reel_assure
+        data_type: double precision
+        constraints:
+          - type: not_null
+      - name: montant_secu
+        data_type: double precision
+        constraints:
+          - type: not_null
+      - name: montant_rembourse
+        data_type: double precision
+        constraints:
+          - type: not_null

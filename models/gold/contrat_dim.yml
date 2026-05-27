@@ -21,7 +21,7 @@ models:
         data_type: string
         constraints:
           - type: not_null
-      - name: categorie
+      - name: categorie_metier
         data_type: string
         constraints:
           - type: not_null
@@ -29,7 +29,7 @@ models:
         data_type: string
         constraints:
           - type: not_null
-      - name: libelle_profession
+      - name: libelle_metier
         data_type: string
         constraints:
           - type: not_null
